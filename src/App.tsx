@@ -1,12 +1,16 @@
 import type { Component } from "solid-js";
 import { createSignal } from "solid-js";
 import { u8aToHex, hexToU8a, isHex } from "@polkadot/util";
-import { decodeAddress, encodeAddress, Keyring } from "@polkadot/keyring";
+import { decodeAddress, encodeAddress } from "@polkadot/keyring";
 
 const alice = "ajYMsCKsEAhEvHpeA4XqsfiA9v1CdzZPrCfS6pEfeGHW9j8";
 const astarPrefix = 5;
 
 const isValidSS58 = (ss58: string): boolean => {
+  if (isHex(ss58)) {
+    return false;
+  }
+
   try {
     encodeAddress(decodeAddress(ss58, false, astarPrefix), astarPrefix);
 
