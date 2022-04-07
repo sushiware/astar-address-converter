@@ -49,7 +49,7 @@ const App: Component = () => {
       <p>{state().astar_network_address}</p>
       <footer>
         <a href="https://github.com/sushiware/astar-address-converter">
-          https://github.com/sushiware/astar-address-converter
+          @github.com/sushiware/astar-address-converter
         </a>
       </footer>
     </div>
